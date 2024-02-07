@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<body>
+  <div id="tabs">
+    <button data-action="save">Зберегти</button>
+    <button data-action="load">Завантажити</button>
+    <button data-action="search">Пошук</button>
+    <button data-action="search1">Пошук</button>
+  </div>
+
+  <script>
+    class Menu {
+      constructor(elem) {
+        this.elem = elem;
+        this.elem.onclick = this.processClicks.bind(this);
+      }
+
+      save() {
+        alert('збереження');
+      }
+
+      load() {
+        alert('завантаження');
+      }
+
+      search() {
+        alert('пошук');
+      }
+
+      processClicks(event) {
+        let action = event.target.dataset.action;
+        console.log(action);
+        if (action && this[action]) {
+          this[action]();
+        }
+      }
+    }
+    let tabs = document.querySelector('#tabs');
+    new Menu(tabs);
+  </script>
+</body>

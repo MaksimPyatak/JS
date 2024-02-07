@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Even Delegation</title>
+  </head>
+  <body>
+    <div class="tabs" style="display: flex">
+      <button
+        class="tab"
+        data-article="first"
+        style="padding: 5px; margin-right: 10px; border: 1px solid gray"
+      >
+        <div>First article</div>
+      </button>
+      <button
+        class="tab"
+        data-article="second"
+        style="padding: 5px; margin-right: 10px; border: 1px solid gray"
+      >
+        <div>Second article</div>
+      </button>
+      <button
+        class="tab"
+        data-article="third"
+        style="padding: 5px; margin-right: 10px; border: 1px solid gray"
+      >
+        <div>Third article</div>
+      </button>
+    </div>
+
+    <button
+      class="tab"
+      data-article="first"
+      style="padding: 5px; margin: 10px; border: 1px solid gray"
+    >
+      <div>button</div>
+    </button>
+
+    <div class="articles">
+      <div class="articles__first" style="display: none; font-size: 28px">
+        First article
+      </div>
+      <div class="articles__second" style="display: none; font-size: 28px">
+        Second article
+      </div>
+      <div class="articles__third" style="display: none; font-size: 28px">
+        Third article
+      </div>
+    </div>
+    <script>
+      let tabs = document.querySelector('.tabs');
+      let art = null;
+      let tb;
+      document.addEventListener('click', selectTab);
+      function selectTab(e) {
+        let btn = e.target.closest('.tab');
+        if (!btn) {
+          return;
+        }
+        if (!tabs.contains(btn)) {
+          return;
+        }
+        selectArticle(btn);
+      }
+      function selectArticle(tab) {
+        let selectedArticle = tab.dataset.article;
+        if (tb) {
+          tb.style.background = 'rgb(240, 240, 240)';
+        }
+        tb = tab;
+        tab.style.background = 'yellow';
+        if (art) {
+          art.style.display = 'none';
+        }
+        art = document.querySelector('.articles__' + selectedArticle);
+        art.style.display = 'block';
+      }
+    </script>
+  </body>
+</html>

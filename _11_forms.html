@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <form action="" method="get" name="first">
+      <div>
+        <input type="text" name="text" id="text" />
+        <label for="text" id="text-label"></label>
+      </div>
+      <div>
+        <input type="email" name="email" id="email" />
+        <label for="email" id="email-label"></label>
+      </div>
+
+      <fieldset name="fieldset">
+        <input type="radio" name="studying" id="studying" value="Yes" checked />
+        <label for="studying">studying</label>
+        <br />
+        <input type="radio" name="studying" id="not-studying" value="No" />
+        <label for="not-studying">not-studying</label>
+        <div class="for-studying">Are you studying?____<span></span></div>
+        <button class="for-studying-btn">I`m studying</button>
+      </fieldset>
+
+      <select name="lang" id="lang">
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="js">JS</option>
+      </select>
+      <div class="for-lang">Language: <span></span></div>
+      <button type="button" class="for-select">css</button>
+      <br />
+      <button class="submit" type="submit">Submit</button>
+      <div class="message"></div>
+    </form>
+    <script src="_11_forms.js"></script>
+  </body>
+</html>
